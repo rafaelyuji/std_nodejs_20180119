@@ -20,6 +20,8 @@ app.set('io', io);
 //   }
 // });
 
-http.listen(8080, function() {
+var port = process.env.PORT || 8080;
+
+http.listen(port, function() {
     console.log('Servidor rodando');
 });

@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 function createDBConnection() {
-    if (!process.env.NODE_ENV) {
+    if(!process.env.NODE_ENV) {
         return mysql.createConnection({
             host:'localhost',
             user: 'root',
@@ -14,6 +14,15 @@ function createDBConnection() {
             user: 'root',
             password: '',
             database: 'casadocodigo_test'
+        });
+    } else if(process.env.NODE_ENV == 'production') {
+        var urlConexao = process.env.CLEARDB_DATABASE_URL;
+        var dadosUrlBase = urlConexao.match(/mysql:\/\/(.*):(.*)@(.*)\/(.*)\?reconnect=true/);
+        return mysql.createConnection({
+            host: dadosUrlBase[3],
+            user: dadosUrlBase[1],
+            password: dadosUrlBase[2],
+            database: dadosUrlBase[4]
         });
     }
 }
