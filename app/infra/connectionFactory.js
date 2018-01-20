@@ -28,3 +28,4 @@ module.exports = function() {
 // $ mkdir -p /usr/local/lib /usr/local/bin
 // $ sudo mv heroku-cli-v6.x.x-darwin-64 /usr/local/lib/heroku
 // $ sudo ln -s /usr/local/lib/heroku/bin/heroku /usr/local/bin/heroku
+// https://www.howtoforge.com/tutorial/install-git-and-github-on-ubuntu-14.04/
